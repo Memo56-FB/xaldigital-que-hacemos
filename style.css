@@ -34,14 +34,25 @@
 }
 .que-hacemos__card__content {
     padding: 16px;
-    transform: translateX(-100%);
     transition: linear .15s transform ;
+}
+.hide-que-hacemos__card__content {
+    transform: translateX(-100%);
+}
+.show-que-hacemos__card__content {
+    transform: translateX(0);
 }
 .que-hacemos__card__title,
 .que-hacemos__card__description {
-    opacity: 0;
     transition: ease-in .5s opacity;
 }
+.hide-que-hacemos__card__title-description {
+    opacity: 0;
+}
+.show-que-hacemos__card__title-description {
+    opacity: 1;
+}
+
 .que-hacemos__card:nth-child(odd) > .que-hacemos__card__content {
     background-color: #A8ABAE;
 }
@@ -56,5 +67,5 @@
 
 .active {
     background-color: #000 !important;
-    color: #FFF !important;
+    color: #FFF;
 }

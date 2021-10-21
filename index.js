@@ -1,3 +1,82 @@
+// ANIMACIÓN
+const animateCards = document.querySelectorAll('.que-hacemos__card__content')
+const animateTitles = document.querySelectorAll('.que-hacemos__card__title')
+const animateDescriptions = document.querySelectorAll('.que-hacemos__card__description')
+
+animateCards.forEach(card => card.classList.add('hide-que-hacemos__card__content'))
+animateTitles.forEach(title => title.classList.add('hide-que-hacemos__card__title-description'))
+animateDescriptions.forEach(description => description.classList.add('hide-que-hacemos__card__title-description'))
+
+const resetStyles = () => {
+    animateCards.forEach(card => {
+        if(card.classList.contains('show-que-hacemos__card__content')){
+            card.classList.replace('show-que-hacemos__card__content','hide-que-hacemos__card__content')
+        }
+    })
+    animateTitles.forEach(title => {
+        if(title.classList.contains('show-que-hacemos__card__title-description')){
+            title.classList.replace('show-que-hacemos__card__title-description','hide-que-hacemos__card__title-description')
+        }
+    })
+    animateDescriptions.forEach(description => {
+        if(description.classList.contains('show-que-hacemos__card__title-description')){
+            description.classList.replace('show-que-hacemos__card__title-description','hide-que-hacemos__card__title-description')
+        }
+    })
+    
+}
+
+const offSet = 90
+
+const cardView = (card) => {
+    const cardTop = card.getBoundingClientRect().top
+   
+    return (
+        cardTop <= 
+        ((window.innerHeight || document.documentElement.clientHeight) - offSet)
+      )
+  }
+
+const displayScrollCards = (cards) => {
+    cards.classList.add('show-que-hacemos__card__content')
+}
+const displayScrollTitles = (titles) => {
+    setTimeout(() => {
+        titles.classList.add('show-que-hacemos__card__title-description')
+    }, 300);
+}
+const displayScrollDescriptions = (descriptions) => {
+    setTimeout(() => {
+        descriptions.classList.add('show-que-hacemos__card__title-description')
+    }, 600);
+}
+
+const handleScrollAnimation = () => {
+    animateCards.forEach((card) => {
+      if (cardView(card)) {
+            displayScrollCards(card);
+      }
+    })
+    animateTitles.forEach(title => {
+        if(cardView(title)) {
+            displayScrollTitles(title)
+        }
+    })
+    animateDescriptions.forEach(title => {
+        if(cardView(title)) {
+            displayScrollDescriptions(title)
+        }
+    })
+  }
+window.scroll({
+    top:1
+})
+
+window.addEventListener('scroll', () => {
+    handleScrollAnimation();
+})
+
+// FILTRO
 const sectionQueHacemos = document.querySelector('.que-hacemos')
 
 const todoBtn = document.querySelector('#todo-btn')
@@ -39,97 +118,56 @@ const setActiveButton = (activeBtn) => {
 }
 
 todoBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(todoBtn)
     addCards(allCards)
+    handleScrollAnimation();
 })
 
 designThinkingBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(designThinkingBtn)
     deleteAllCards()
     addCards(designThinkingCards)
+    handleScrollAnimation();
 })
 
 tailorMadeDevelopmentsBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(tailorMadeDevelopmentsBtn)
     deleteAllCards()
     addCards(tailorMadeDevelopmentsCards)
+    handleScrollAnimation();
 })
 
 iotSolutionsBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(iotSolutionsBtn)
     deleteAllCards()
     addCards(iotSolutionsCards)
+    handleScrollAnimation();
 })
 
 customerExperienceBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(customerExperienceBtn)
     deleteAllCards()
     addCards(customerExperienceCards)
+    handleScrollAnimation();
 })
 
 enchancedDataAnalyticsBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(enchancedDataAnalyticsBtn)
     deleteAllCards()
     addCards(enchancedDataAnalyticsCards)
+    handleScrollAnimation();
 })
 
 journeyToCloudBtn.addEventListener('click', () => {
+    resetStyles()
     setActiveButton(journeyToCloudBtn)
     deleteAllCards()
     addCards(journeyToCloudCards)
-})
-
-// ANIMACIÓN
-const animateCards = document.querySelectorAll('.que-hacemos__card__content')
-const animateTitles = document.querySelectorAll('.que-hacemos__card__title')
-const animateDescriptions = document.querySelectorAll('.que-hacemos__card__description')
-
-const offSet = 90
-
-const cardView = (card) => {
-    const cardTop = card.getBoundingClientRect().top
-   
-    return (
-        cardTop <= 
-        ((window.innerHeight || document.documentElement.clientHeight) - offSet)
-      )
-  }
-
-const displayScrollCards = (cards) => {
-    cards.style.transform = 'translateX(0)'
-}
-const displayScrollTitles = (titles) => {
-    setTimeout(() => {
-        titles.style.opacity = '1'
-    }, 300);
-}
-const displayScrollDescriptions = (descriptions) => {
-    setTimeout(() => {
-        descriptions.style.opacity = '1'
-    }, 600);
-}
-
-const handleScrollAnimation = () => {
-    animateCards.forEach((card) => {
-      if (cardView(card)) {
-            displayScrollCards(card);
-      }
-    })
-    animateTitles.forEach(title => {
-        if(cardView(title)) {
-            displayScrollTitles(title)
-        }
-    })
-    animateDescriptions.forEach(title => {
-        if(cardView(title)) {
-            displayScrollDescriptions(title)
-        }
-    })
-  }
-window.scroll({
-    top:1
-})
-
-window.addEventListener('scroll', () => {
     handleScrollAnimation();
 })
