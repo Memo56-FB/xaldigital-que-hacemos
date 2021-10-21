@@ -28,12 +28,15 @@
     background-color: #dfcc21;
 }
 .que-hacemos__card {
-    flex: 0 1 500px;
+    flex: 0 1 400px;
+    height: 300px;
     margin: 16px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .que-hacemos__card__content {
+    font-size: 18px;
     padding: 16px;
+    height: 90%;
     transition: linear .15s transform ;
 }
 .hide-que-hacemos__card__content {
