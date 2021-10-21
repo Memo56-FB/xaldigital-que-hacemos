@@ -1,3 +1,4 @@
+(function(){
 // ANIMACIÓN
 const animateCards = document.querySelectorAll('.que-hacemos__card__content')
 const animateTitles = document.querySelectorAll('.que-hacemos__card__title')
@@ -171,3 +172,4 @@ journeyToCloudBtn.addEventListener('click', () => {
     addCards(journeyToCloudCards)
     handleScrollAnimation();
 })
+})()
