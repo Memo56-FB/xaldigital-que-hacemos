@@ -6,6 +6,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* to delete */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .que-hacemos__container-buttons,
@@ -27,14 +28,24 @@
     background-color: #dfcc21;
 }
 .que-hacemos__card {
-    flex: 1 1 400px;
-    padding: 16px;
+    flex: 0 1 500px;
     margin: 16px;
+    overflow-x: hidden;
 }
-.que-hacemos__card:nth-child(odd) {
+.que-hacemos__card__content {
+    padding: 16px;
+    transform: translateX(-100%);
+    transition: linear .15s transform ;
+}
+.que-hacemos__card__title,
+.que-hacemos__card__description {
+    opacity: 0;
+    transition: ease-in .5s opacity;
+}
+.que-hacemos__card:nth-child(odd) > .que-hacemos__card__content {
     background-color: #A8ABAE;
 }
-.que-hacemos__card:nth-child(even) {
+.que-hacemos__card:nth-child(even) > .que-hacemos__card__content {
     background-color: #000;
     color: #FFF;
 }
