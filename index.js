@@ -4,10 +4,6 @@ const animateCards = document.querySelectorAll('.que-hacemos__card__content')
 const animateTitles = document.querySelectorAll('.que-hacemos__card__title')
 const animateDescriptions = document.querySelectorAll('.que-hacemos__card__description')
 
-animateCards.forEach(card => card.classList.add('hide-que-hacemos__card__content'))
-animateTitles.forEach(title => title.classList.add('hide-que-hacemos__card__title-description'))
-animateDescriptions.forEach(description => description.classList.add('hide-que-hacemos__card__title-description'))
-
 const resetStyles = () => {
     animateCards.forEach(card => {
         if(card.classList.contains('show-que-hacemos__card__content')){
@@ -27,7 +23,7 @@ const resetStyles = () => {
     
 }
 
-const offSet = 90
+const offSet = 200
 
 const cardView = (card) => {
     const cardTop = card.getBoundingClientRect().top
@@ -44,18 +40,18 @@ const displayScrollCards = (cards) => {
 const displayScrollTitles = (titles) => {
     setTimeout(() => {
         titles.classList.add('show-que-hacemos__card__title-description')
-    }, 300);
+    }, 600);
 }
 const displayScrollDescriptions = (descriptions) => {
     setTimeout(() => {
         descriptions.classList.add('show-que-hacemos__card__title-description')
-    }, 600);
+    }, 1200);
 }
 
 const handleScrollAnimation = () => {
     animateCards.forEach((card) => {
       if (cardView(card)) {
-            displayScrollCards(card);
+        displayScrollCards(card);
       }
     })
     animateTitles.forEach(title => {
